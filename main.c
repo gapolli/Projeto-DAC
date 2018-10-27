@@ -1,42 +1,25 @@
-#include <stdio.h>
-#include <stdlib.h>
+#include "main.h"
 
-typedef struct disciplina{
-	char codigo[5];
-	char nome[100];
-	int creditos;
-} Disciplina;
+Aluno user; //variável global que recebe os dados do aluno que logar
 
-typedef struct aluno{
-	int ra;
-	char nome[100];
-	char login[10];
-	char senha[10];
-} Aluno;
+int main()
+{
+    int erro; //variável que identifica se tudo ocorreu bem em funções que forem chamadas
+    int opcao; //variável que terá o controle das opções selecionadas no menu
 
-Disciplina* leDisc();
-int topD=5;
+    erro = 1; //atribuindo 1 à variável para que o laço de login se inicie
+    opcao = -1; //atribuindo -1 à variável para que o laço que executa as ações do programa se inicie
 
-int main(){
-	printf("Teste");
-	Disciplina * d;
-	d=leDisc();
-	printf("%s,%s,%d",d[1].codigo,d[1].nome,d[1].creditos);
-	return 0;	
-}
+    while(erro != 0){ //laço que repete o login até o usuário entrar com as credenciais corretas
+        erro = login(&user); //chamando a função de login
+    }
 
-Disciplina* leDisc(){
-	FILE* fp = fopen("Disciplinas.txt","r");
-	int top, i;
-	fscanf(fp,"%d",&top);
-	printf("%d",top);
-	topD=top;
-	Disciplina * aux;
-	aux = (Disciplina*)malloc(sizeof(Disciplina)*top);
-	for(i=0;i<top;i++)
-	{
-		fscanf(fp,"%s,%s,%d",aux[i].codigo,aux[i].nome,&aux[i].creditos);
-	}
-	fclose(fp);
-	return aux;
+    while(opcao != 0){ //laço que executa as ações do programa
+        opcao = menu();
+
+        if(opcao == 0) //finalizando o programa quando o usuário seleciona a opção zero
+            exit(0);
+
+        redirect(opcao); //chamando função que redireciona para o que o usuário escolheu
+    }
 }
