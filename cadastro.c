@@ -1,15 +1,15 @@
 #include "main.h"
 
 int cadastrar(){
-    Aluno cad; //vari·vel que guardar· tempor·riamente os dados do aluno a ser cadastrado
-    FILE *fp; //vari·vel apontadora para arquivo
+    Aluno cad; //vari√°vel que guardar√° temporariamente os dados do aluno a ser cadastrado
+    FILE *fp; //vari√°vel apontadora para arquivo
 
-    fp = fopen("Alunos.txt", "a"); //abrindo o arquivo para "append" para que o arquivo n„o seja reescrito
+    fp = fopen("Alunos.txt", "a"); //abrindo o arquivo para "append" para que o arquivo n√£o seja reescrito
 
-    if(fp == NULL) //interrompendo a funÁ„o, pois o arquivo n„o pode ser aberto
+    if(fp == NULL) //interrompendo a fun√ß√£o, pois o arquivo n√£o pode ser aberto
         return 1;
 
-    //guardando os dados na struct tempor·riamente para salvar no arquivo
+    //guardando os dados na struct temporariamente para salvar no arquivo
     puts("");
     puts("Cadastro de Alunos:");
     puts("");
@@ -18,7 +18,7 @@ int cadastrar(){
     getchar(); //limpando o buffer do teclado
 
     printf("\nDigite o Nome do Aluno:");
-    scanf("%[^\n]s", cad.nome); //maneira de permitir que o scanf salve uma string com espaÁos se necess·rio
+    scanf("%[^\n]s", cad.nome); //maneira de permitir que o scanf salve uma string com espa√ßos se necess√°rio
 
     printf("\nDigite o Login:");
     scanf("%s", cad.login);
@@ -32,6 +32,8 @@ int cadastrar(){
 
     puts("Aluno cadastrado com sucesso!");
     puts("");
+    
+    fclose(fp);
 
     return 0;
 }
