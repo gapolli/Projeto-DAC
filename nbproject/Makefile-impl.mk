@@ -24,7 +24,7 @@ CLEAN_SUBPROJECTS=${CLEAN_SUBPROJECTS_${SUBPROJECTS}}
 
 
 # Project Name
-PROJECTNAME=Projeto-DAC
+PROJECTNAME=Projeto-DAC-netbeans-branch
 
 # Active Configuration
 DEFAULTCONF=Debug

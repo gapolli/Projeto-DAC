@@ -2,6 +2,3 @@
 222222,Gustavo,gustavo,gustavo
 333333,Max,max,max
 444444,Rodrigo,rodrigo,rodrigo
-555555,Roberto,roberto,roberto
-666666,Luciana,luciana,luciana
-777777,Maria,maria,maria
