@@ -10,6 +10,7 @@
                    displayName="Arquivos de Código-Fonte"
                    projectFiles="true">
       <itemPath>cadastro.c</itemPath>
+      <itemPath>consulta.c</itemPath>
       <itemPath>login.c</itemPath>
       <itemPath>main.c</itemPath>
       <itemPath>menu.c</itemPath>
@@ -38,7 +39,7 @@
   <confs>
     <conf name="Debug" type="1">
       <toolsSet>
-        <compilerSet>default</compilerSet>
+        <compilerSet>GNU|GNU</compilerSet>
         <dependencyChecking>true</dependencyChecking>
         <rebuildPropChanged>false</rebuildPropChanged>
       </toolsSet>
@@ -51,6 +52,8 @@
       <item path="Prerequisitos.txt" ex="false" tool="3" flavor2="0">
       </item>
       <item path="cadastro.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="consulta.c" ex="false" tool="0" flavor2="0">
       </item>
       <item path="login.c" ex="false" tool="0" flavor2="0">
       </item>
@@ -90,6 +93,8 @@
       <item path="Prerequisitos.txt" ex="false" tool="3" flavor2="0">
       </item>
       <item path="cadastro.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="consulta.c" ex="false" tool="0" flavor2="0">
       </item>
       <item path="login.c" ex="false" tool="0" flavor2="0">
       </item>

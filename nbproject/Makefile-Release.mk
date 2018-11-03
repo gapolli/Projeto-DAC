@@ -36,6 +36,7 @@ OBJECTDIR=${CND_BUILDDIR}/${CND_CONF}/${CND_PLATFORM}
 # Object Files
 OBJECTFILES= \
 	${OBJECTDIR}/cadastro.o \
+	${OBJECTDIR}/consulta.o \
 	${OBJECTDIR}/login.o \
 	${OBJECTDIR}/main.o \
 	${OBJECTDIR}/menu.o \
@@ -70,6 +71,11 @@ ${OBJECTDIR}/cadastro.o: cadastro.c
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
 	$(COMPILE.c) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/cadastro.o cadastro.c
+
+${OBJECTDIR}/consulta.o: consulta.c
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} "$@.d"
+	$(COMPILE.c) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/consulta.o consulta.c
 
 ${OBJECTDIR}/login.o: login.c
 	${MKDIR} -p ${OBJECTDIR}

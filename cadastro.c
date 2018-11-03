@@ -18,13 +18,13 @@ int cadastrar(){
     getchar(); //limpando o buffer do teclado
 
     printf("\nDigite o Nome do Aluno:");
-    scanf("%[^\n]s", cad.nome); //maneira de permitir que o scanf salve uma string com espaços se necessário
+    scanf("%99[^\n]s", cad.nome); //maneira de permitir que o scanf salve uma string com espaços se necessário
 
     printf("\nDigite o Login:");
-    scanf("%s", cad.login);
+    scanf("%10s", cad.login);
 
     printf("\nDigite a Senha:");
-    scanf("%s", cad.senha);
+    scanf("%10s", cad.senha);
     puts("");
 
     //salvando no arquivo o novo aluno

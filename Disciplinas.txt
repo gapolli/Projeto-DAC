@@ -1,5 +1,5 @@
 EB101,Cálculo I,6
-EB102,Geometria Analític e Álgebra Linear,6
+EB102,Geometria Analítica e Álgebra Linear,6
 SI010,Estrutura de Dados II,4
 SI100,Algoritmos e Programação de Computadores I,4
 SI102,Seminários I,2
@@ -18,7 +18,7 @@ SI703,Governança e Planejamento Estratégico de TI,2
 SI704,Seminários II,2
 SI800,Empreendedorismo e Inovação,2
 ST008,Metodologia do Trabalho Científico,2
-ST096,Ciência, Tecnologia e Sociedade,2
+ST096,Ciência Tecnologia e Sociedade,2
 ST266,Engenharia de Software I,2
 ST562,Estruturas de Arquivos,4
 ST567,Banco de Dados I,4
@@ -29,3 +29,5 @@ TT060,Gestão de Projetos,4
 TT106,Organização e Arquitetura de Computadores,4
 TT304,Sistemas Operacionais,4
 TT350,Administração de Empresas,4
+AA450,50% do Curso Completo,0
+AA435,35% do Curso Completo,0

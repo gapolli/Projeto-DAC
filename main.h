@@ -6,16 +6,22 @@
 #include <string.h>
 
 typedef struct disciplina{
-	char codigo[5];
-	char nome[100];
+	char codigo[6];
+	char nome[101];
 	int creditos;
 } Disciplina;
 
+typedef struct prerequisito{
+        char nomePre[101];
+	char codDisc[6];
+	char codPrereq[6];
+} Prereq;
+
 typedef struct aluno{
 	int ra;
-	char nome[100];
-	char login[10];
-	char senha[10];
+	char nome[101];
+	char login[11];
+	char senha[11];
 } Aluno;
 
 #endif // MAIN_H

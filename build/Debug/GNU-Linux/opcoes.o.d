@@ -1,1 +1,3 @@
-build/Debug/GNU-Linux/opcoes.o: opcoes.c
+build/Debug/GNU-Linux/opcoes.o: opcoes.c main.h
+
+main.h:

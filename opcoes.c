@@ -12,6 +12,10 @@ int redirect(int op){
         break;
 
         case 2:
+            erro = consultarDisc();
+            
+            if(erro == 1)
+                puts("Erro ao abrir o arquivo!");
         break;
 
         case 3:
