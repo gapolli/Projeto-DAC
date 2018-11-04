@@ -19,6 +19,9 @@ int consultarDisc(){
     
     printf("Digite a Disciplina: "); //obtendo o código da disciplina
     scanf("%5s", codigodisc);
+    for(int k=0; k<2; k++){ //modifica os 2 primeiros dígitos do código informado para maiúsculas
+        codigodisc[k] = toupper(codigodisc[k]);
+    }
     getchar(); /* detalhe: o 5 é para limitar o tanto de caracteres 
                 * que serão pegos, eliminando a necessidade de um
                 * fgets. */
