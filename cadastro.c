@@ -28,7 +28,7 @@ int cadastrar(){
     puts("");
 
     //salvando no arquivo o novo aluno
-    fprintf(fp, "\n%d,%s,%s,%s", cad.ra, cad.nome, cad.login, cad.senha);
+    fprintf(fp, "%d,%s,%s,%s\n", cad.ra, cad.nome, cad.login, cad.senha);
 
     puts("Aluno cadastrado com sucesso!");
     puts("");

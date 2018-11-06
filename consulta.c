@@ -1,7 +1,7 @@
 #include "main.h"
 
 int consultarDisc(){
-    int i, j; //variáveis inteiras auxiliares
+    int i, j, k; //variáveis inteiras auxiliares
     int validador; //variável que valida se a disciplina foi encontrada com sucesso
     char codigodisc[6]; //variável que receberá o código da disciplina
     char codigotemp[6]; /* variável que recebe temporáriamente o código da disciplina
@@ -19,9 +19,11 @@ int consultarDisc(){
     
     printf("Digite a Disciplina: "); //obtendo o código da disciplina
     scanf("%5s", codigodisc);
-    for(int k=0; k<2; k++){ //modifica os 2 primeiros dígitos do código informado para maiúsculas
+    
+    for(k = 0; k < 2; k++){ //modifica os 2 primeiros dígitos do código informado para maiúsculas
         codigodisc[k] = toupper(codigodisc[k]);
     }
+    
     getchar(); /* detalhe: o 5 é para limitar o tanto de caracteres 
                 * que serão pegos, eliminando a necessidade de um
                 * fgets. */
