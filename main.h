@@ -5,6 +5,14 @@
 #include <stdlib.h>
 #include <string.h>
 
+typedef struct matricula{
+        int ra;
+        char codigo[6];
+        int semestre;
+        float nota;
+        float faltas;
+} Matricula;
+
 typedef struct disciplina{
 	char codigo[6];
 	char nome[101];
