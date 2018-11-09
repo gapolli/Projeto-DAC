@@ -51,10 +51,12 @@ int fazerMatricula(Aluno user){
                     validador = 2;
                     break;
                 }
-            }else{//o ra não existe ainda na lista
-                validador = 1;
             }
         }
+        
+        //o ra não existe ainda na lista
+        if(validador == 0)
+            validador = 1;
         
         fflush(fp);
         fclose(fp);

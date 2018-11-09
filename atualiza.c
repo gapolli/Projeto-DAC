@@ -78,7 +78,7 @@ int atualizar(Aluno user){
         }
         
         //condição onde não se achou o semestre
-        if(validador == -1){
+        if(validador == -1 || validador == 0){
             puts("Voce nao possui nenhuma matricula neste semestre!");
             continue;
         }
