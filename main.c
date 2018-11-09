@@ -20,6 +20,6 @@ int main()
         if(opcao == 0) //finalizando o programa quando o usuário seleciona a opção zero
             exit(0);
 
-        redirect(opcao, user); //chamando função que redireciona para o que o usuário escolheu
+        redirect(opcao, &user); //chamando função que redireciona para o que o usuário escolheu
     }
 }

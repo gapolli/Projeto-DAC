@@ -35,6 +35,7 @@ OBJECTDIR=${CND_BUILDDIR}/${CND_CONF}/${CND_PLATFORM}
 
 # Object Files
 OBJECTFILES= \
+	${OBJECTDIR}/atualiza.o \
 	${OBJECTDIR}/cadastro.o \
 	${OBJECTDIR}/consulta.o \
 	${OBJECTDIR}/login.o \
@@ -67,6 +68,11 @@ LDLIBSOPTIONS=
 ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/projeto-dac-netbeans-branch: ${OBJECTFILES}
 	${MKDIR} -p ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}
 	${LINK.c} -o ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/projeto-dac-netbeans-branch ${OBJECTFILES} ${LDLIBSOPTIONS}
+
+${OBJECTDIR}/atualiza.o: atualiza.c
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} "$@.d"
+	$(COMPILE.c) -g -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/atualiza.o atualiza.c
 
 ${OBJECTDIR}/cadastro.o: cadastro.c
 	${MKDIR} -p ${OBJECTDIR}

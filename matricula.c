@@ -32,6 +32,7 @@ int fazerMatricula(Aluno user){
         getchar();
         puts("");
         
+        //caso de um semestre menor que 1
         if(semtemp < 1){
             puts("Semestre invalido!");
             continue;
@@ -48,12 +49,14 @@ int fazerMatricula(Aluno user){
                     puts("Nao e possivel se matricular em um semestre anterior!");
                     
                     validador = 2;
+                    break;
                 }
             }else{//o ra não existe ainda na lista
                 validador = 1;
             }
         }
         
+        fflush(fp);
         fclose(fp);
     }
     
@@ -79,6 +82,7 @@ int fazerMatricula(Aluno user){
         }
     }
     
+    fflush(fp);
     fclose(fp);
     
     fp = fopen("Disciplinas.txt", "r"); //abrindo o arquivo para leitura de disciplinas
@@ -110,6 +114,7 @@ int fazerMatricula(Aluno user){
         }
     }
     
+    fflush(fp);
     fclose(fp);
     
     //laço que trabalha com a matrícula do aluno
@@ -148,6 +153,7 @@ int fazerMatricula(Aluno user){
             continue;
         }
         
+        fflush(fp);
         fclose(fp);
         
         if(strcmp(codigodisc, saida) == 0){
@@ -175,7 +181,8 @@ int fazerMatricula(Aluno user){
                 break;
             }
         }
-            
+        
+        fflush(fp);
         fclose(fp);
         
         //pulando o resto do conteúdo do laço já que a disciplina já foi cursada
@@ -206,6 +213,7 @@ int fazerMatricula(Aluno user){
             }
         }
         
+        fflush(fp);
         fclose(fp);
         
         //condição caso a disciplina tenha pré-requisito
@@ -263,6 +271,7 @@ int fazerMatricula(Aluno user){
                 }
             }
 
+            fflush(fp);
             fclose(fp);
         }
         
@@ -286,12 +295,13 @@ int fazerMatricula(Aluno user){
                          return 1; //impossível abrir o arquivo e interrompe a função
                     
                     //imprimindo no arquivo a matrícula
-                    fprintf(fp,"%d,%s,%d,0,0\n", user.ra, codigodisc, semtemp);
+                    fprintf(fp,"%d,%s,%d,-1.0,-1.0\n", user.ra, codigodisc, semtemp);
                     
                     puts("Transacao efetuada com sucesso");
                     puts("Pressione ENTER para continuar...");
                     getchar();
                     
+                    fflush(fp);
                     fclose(fp);
                 }
             }

@@ -1,6 +1,7 @@
 #include "main.h"
 
-int redirect(int op,Aluno user){
+int redirect(int op,Aluno *user){
+    int aux; //variável inteira auxiliar
     int erro; /* variável que recebe o que uma função chamada retorna e dessa
                * maneira, descobre-se se a função funcionou normalmente ou não. */
 
@@ -22,7 +23,7 @@ int redirect(int op,Aluno user){
         break;
 
         case 3:
-            erro = fazerMatricula(user); //chamando a função de matrícula
+            erro = fazerMatricula(*user); //chamando a função de matrícula
             
             //condição satisfeita quando o programa não consegue abrir o arquivo
             if(erro == 1)
@@ -30,6 +31,17 @@ int redirect(int op,Aluno user){
         break;
 
         case 4:
+            erro = atualizar(*user); //chamando a função de atualizar nota e falta
+            
+            //condição satisfeita quando o programa não consegue abrir o arquivo
+            if(erro == 1)
+                puts("Erro ao abrir o arquivo!");
+        break;
+        
+        case 5:
+            while(erro != 0){ //laço que repete o login até o usuário entrar com as credenciais corretas
+                erro = login(user); //chamando a função de login
+            }
         break;
 
         default:
