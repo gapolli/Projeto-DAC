@@ -22,7 +22,7 @@ int login(Aluno *user){
 
     /*laço que percorre o arquivo até encontrar o login e senha correspondente com o que o
     usuário digitou anteriormente. */
-    while(fscanf(fp, "%d, %[^,], %[^,], %[^\n]", &raArq, nomeArq, loginArq, senhaArq)!= EOF){
+    while(fscanf(fp, "%d,%[^,],%[^,],%[^\n]", &raArq, nomeArq, loginArq, senhaArq)!= EOF){
         //comparando dados para autenticação
         if(strcmp(login, loginArq) == 0 && strcmp(senha, senhaArq) == 0){
             /* Jogando dados pegos do arquivo na variável global que será usada no
