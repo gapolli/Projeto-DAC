@@ -1,5 +1,11 @@
 #include "main.h"
 
+/*   PROJETO FINAL SI200A - GRUPO 5
+ * - Andrey Toshiro Okamura 213119
+ * - Gustavo Adrien Polli 217357
+ * - Max Lucio Martins de Assis 222444  
+ */
+
 Aluno user; //variável global que recebe os dados do aluno que logar
 
 int main()
