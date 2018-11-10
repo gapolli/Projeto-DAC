@@ -32,9 +32,13 @@ int fazerMatricula(Aluno user){
         getchar();
         puts("");
         
-        //caso de um semestre menor que 1
-        if(semtemp < 1){
+        //caso de um semestre menor que 1 ou maior que 10
+        if(semtemp < 1 || semtemp > 10){
             puts("Semestre invalido!");
+
+			if(semtemp > 10)
+				puts("Acima da integralizacao maxima!");
+
             continue;
         }
 
@@ -131,6 +135,12 @@ int fazerMatricula(Aluno user){
         
         puts("");
         getchar();
+
+		//verificando se o aluno está tentando se matricular em uma disciplina especial
+		if(codigodisc[0] == 'A' && codigodisc[1] == 'A'){
+			puts("Autorizacao! Somente a coordenacao pode te matricular nesta disciplina.");
+			continue;
+		}
         
         fp = fopen("Disciplinas.txt", "r"); //abrindo o arquivo para leitura de disciplinas
     

@@ -10,7 +10,7 @@ int atualizar(Aluno user){
     Matricula *alunos; //vetor de struct dinâmico que guarda todos os alunos
     Disciplina *disc; //vetor de struct dinâmico que guarda as disciplinas do aluno
     FILE *fp; //ponteiro para arquivo
-    
+
     fp = fopen("AlunosDisciplinas.txt", "r"); /* abrindo o arquivo para contar
                                                * quantas matrículas tem. */
     
@@ -59,12 +59,32 @@ int atualizar(Aluno user){
         getchar();
         puts("");
         
-        //caso de um semestre menor que 1
-        if(semtemp < 1){
+        //caso de um semestre menor que 1 ou maior que 10
+        if(semtemp < 1 || semtemp > 10){
             puts("Semestre invalido!");
+
+			if(semtemp > 10)
+				puts("Acima da integralizacao maxima!");
+
             continue;
         }
         
+		//laço que verifica se o aluno tem ou não algum matricula ativa
+		for(j = 0; j < i; j++){
+			if(user.ra == alunos[j].ra){
+				validador = 1;
+				break;
+			}else{
+				validador = 0;
+			}
+		}
+
+		//condição de parada caso o aluno não tenha nenhuma matrícula ativa
+		if(validador == 0){
+			puts("Nao ha nenhuma matricula ainda...");
+			return 0;
+		}
+
         /* laço que verifica se o usuário digitou um semestre em que ele não tem
          * matrícula ainda. */
         for(j = 0; j < i; j++){
@@ -76,12 +96,12 @@ int atualizar(Aluno user){
                 validador = -1;
             }
         }
-        
-        //condição onde não se achou o semestre
-        if(validador == -1 || validador == 0){
-            puts("Voce nao possui nenhuma matricula neste semestre!");
-            continue;
-        }
+
+		//condição onde não se achou o semestre
+		if(validador == -1){
+		        puts("Voce nao possui nenhuma matricula neste semestre!");
+		        continue;
+		}
     }
     
     
@@ -141,7 +161,7 @@ int atualizar(Aluno user){
             if(alunos[j].ra == user.ra && semtemp == alunos[j].semestre){
                 //condição onde se encontra a disciplina que o aluno cursou
                 if(strcmp(alunos[j].codigo, disc[l].codigo) == 0){
-                    printf("%s - %s - Nota: %.1f, Falta (%%): %.1f\n", alunos[j].codigo,
+                    printf("%s - %s - Nota: %.1f, Falta (%): %.1f\n", alunos[j].codigo,
                             disc[l].nome, alunos[j].nota, alunos[j].faltas);
                 }         
             }
@@ -184,23 +204,37 @@ int atualizar(Aluno user){
         
         //condição de reiniciar o laço caso a disciplina não tenha sido encontrada
         if(validador == 0){
-            puts("Voce nao esta matriculado nesta disciplina!");
+            puts("Nao e possivel se matricular nesta disciplina!");
             continue;
         }
         
         //laço que salva no vetor de struct os novos dados
         for(j = 0; j < i; j++){
             //condição onde a disciplina foi encontrada
-            if(strcmp(codigodisc, alunos[j].codigo) == 0){
+            if(user.ra == alunos[j].ra && strcmp(codigodisc, alunos[j].codigo) == 0){
                 printf("Nota: ");
-                scanf("%f", &alunos[j].nota);
-                puts("");
-                getchar();
+		//laço que repete a obtenção de nota até ter uma nota válida
+                do{
+					scanf("%f", &alunos[j].nota);
+
+					if(alunos[j].nota < 0 || alunos[j].nota > 10)
+						puts("Nota invalida! Tente novamente...");
+				}while(alunos[j].nota < 0 || alunos[j].nota > 10);
                 
-                printf("Falta (%%): ");
-                scanf("%f", &alunos[j].faltas);
-                puts("");
-                getchar();
+				puts("");
+				getchar();
+                
+                printf("Falta (%): ");
+		//laço que repete a obtenção de faltas até ter uma porcentagem válida
+				do{
+				        	scanf("%f", &alunos[j].faltas);
+
+					if(alunos[j].faltas < 0 || alunos[j].faltas > 100)
+						puts("Porcentagem invalida! Tente novamente...");
+				}while(alunos[j].faltas < 0 || alunos[j].faltas > 100);                
+		
+				puts("");
+				getchar();
                 
                 break;
             }

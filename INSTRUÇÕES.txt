@@ -1,0 +1,5 @@
+SEGUIR AS INSTRUÇÕES NO TERMINAL LINUX
+
+1 - Executar o script compila.sh:
+	sh compila.sh
+2 - O executável será criado e abrirá automaticamente.
