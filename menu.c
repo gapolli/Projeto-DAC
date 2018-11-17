@@ -9,7 +9,8 @@ int menu(){
     puts("2 - Consultar Disciplinas");
     puts("3 - Realizar Matricula");
     puts("4 - Atualizar Nota e Falta");
-    puts("5 - Trocar usuario");
+    puts("5 - Consultar Historico do Aluno");
+    puts("6 - Trocar usuario");
     puts("0 - Sair");
     puts("");
     printf("Escolha uma opcao: ");

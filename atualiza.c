@@ -161,7 +161,7 @@ int atualizar(Aluno user){
             if(alunos[j].ra == user.ra && semtemp == alunos[j].semestre){
                 //condição onde se encontra a disciplina que o aluno cursou
                 if(strcmp(alunos[j].codigo, disc[l].codigo) == 0){
-                    printf("%s - %s - Nota: %.1f, Falta (%): %.1f\n", alunos[j].codigo,
+                    printf("%s - %s - Nota: %.1f, Falta (%%): %.1f\n", alunos[j].codigo,
                             disc[l].nome, alunos[j].nota, alunos[j].faltas);
                 }         
             }
@@ -224,7 +224,7 @@ int atualizar(Aluno user){
 				puts("");
 				getchar();
                 
-                printf("Falta (%): ");
+                printf("Falta (%%): ");
 		//laço que repete a obtenção de faltas até ter uma porcentagem válida
 				do{
 				        	scanf("%f", &alunos[j].faltas);

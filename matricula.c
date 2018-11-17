@@ -175,6 +175,20 @@ int fazerMatricula(Aluno user){
             break;
         }
         
+        /* somando os créditos da matéria que se deseja fazer matrícula para
+         * posteriormente verificar se os créditos foram excedidos. */
+        creditos += disc.creditos;
+                
+        //verificando se os créditos foram excedidos
+        if(creditos >= 32){
+            puts("Matricula impossivel, quantidade de creditos excedida!");
+            
+            //retornando os créditos ao valor anterior
+            creditos -= disc.creditos;
+            
+            continue;
+        }
+        
         fp = fopen("AlunosDisciplinas.txt", "r"); /* abrindo o arquivo para verificar
                                                    * se o aluno já cursou está disciplina
                                                    * ou não. */

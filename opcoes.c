@@ -39,6 +39,14 @@ int redirect(int op,Aluno *user){
         break;
         
         case 5:
+            erro = hist(*user); //chamando a função de consultar histórico
+            
+            //condição satisfeita quando o programa não consegue abrir o arquivo
+            if(erro == 1)
+                puts("Erro ao abrir o arquivo!");
+        break;
+        
+        case 6:
             while(erro != 0){ //laço que repete o login até o usuário entrar com as credenciais corretas
                 erro = login(user); //chamando a função de login
             }
