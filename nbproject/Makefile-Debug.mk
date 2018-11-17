@@ -38,6 +38,7 @@ OBJECTFILES= \
 	${OBJECTDIR}/atualiza.o \
 	${OBJECTDIR}/cadastro.o \
 	${OBJECTDIR}/consulta.o \
+	${OBJECTDIR}/historico.o \
 	${OBJECTDIR}/login.o \
 	${OBJECTDIR}/main.o \
 	${OBJECTDIR}/matricula.o \
@@ -83,6 +84,11 @@ ${OBJECTDIR}/consulta.o: consulta.c
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
 	$(COMPILE.c) -g -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/consulta.o consulta.c
+
+${OBJECTDIR}/historico.o: historico.c
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} "$@.d"
+	$(COMPILE.c) -g -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/historico.o historico.c
 
 ${OBJECTDIR}/login.o: login.c
 	${MKDIR} -p ${OBJECTDIR}

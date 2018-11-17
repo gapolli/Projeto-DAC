@@ -12,6 +12,7 @@
       <itemPath>atualiza.c</itemPath>
       <itemPath>cadastro.c</itemPath>
       <itemPath>consulta.c</itemPath>
+      <itemPath>historico.c</itemPath>
       <itemPath>login.c</itemPath>
       <itemPath>main.c</itemPath>
       <itemPath>matricula.c</itemPath>
@@ -59,6 +60,8 @@
       </item>
       <item path="consulta.c" ex="false" tool="0" flavor2="0">
       </item>
+      <item path="historico.c" ex="false" tool="0" flavor2="0">
+      </item>
       <item path="login.c" ex="false" tool="0" flavor2="0">
       </item>
       <item path="main.c" ex="false" tool="0" flavor2="0">
@@ -103,6 +106,8 @@
       <item path="cadastro.c" ex="false" tool="0" flavor2="0">
       </item>
       <item path="consulta.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="historico.c" ex="false" tool="0" flavor2="0">
       </item>
       <item path="login.c" ex="false" tool="0" flavor2="0">
       </item>
