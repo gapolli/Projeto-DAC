@@ -19,14 +19,14 @@ int hist(Aluno user){
     
     getchar();
     
-    fp = fopen("AlunosDisciplinas.txt", "r"); /* abrindo o arquivo para pegar o
+    fp = fopen("Alunos.txt", "r"); /* abrindo o arquivo para pegar o
                                                * ra do usuário em formato de string. */
     
     if(fp == NULL)
        return 1; //impossível abrir o arquivo e interrompe a função
     
-    while(fscanf(fp, "%[^,],%[^,],%d,%f,%f\n", ra, temp.codigo, &temp.semestre, 
-            &temp.nota, &temp.faltas) != EOF){
+    while(fscanf(fp, "%6s,%[^,],%[^,],%[^\n]", ra, alunotmp.nome, alunotmp.nome, 
+            alunotmp.senha) != EOF){
         //achando o ra e saindo do laço
         if(atoi(ra) == user.ra)
             break;
@@ -120,6 +120,72 @@ int hist(Aluno user){
     
     fflush(fp);
     fclose(fp);
+    
+    //bubble sort que ordena os alunos por RA em ordem crescente
+    for(j = 0; j < i; j++){
+        for(l = (j+1); l < i; l++){
+            if(alunos[l].ra < alunos[j].ra){
+                temp = alunos[j];
+                alunos[j] = alunos[l];
+                alunos[l] = temp;
+            }
+        }
+    }
+    
+    //bubble sort que ajusta os semestres dos alunos em ordem crescente
+    for(j = 0; j < i; j++){
+        for(l = (j+1); l < i; l++){
+            if(alunos[l].ra == alunos[j].ra && alunos[l].semestre < alunos[j].semestre){
+                temp = alunos[j];
+                alunos[j] = alunos[l];
+                alunos[l] = temp;
+            }
+        }
+    }
+    
+    //laço que verifica se o aluno tem alguma matrícula
+    for(j = 0; j < i; j++){
+        if(user.ra == alunos[j].ra){
+            validador = 1;
+            
+            break;
+        }else{
+            validador = 0;
+        }
+    }
+    
+    //se o aluno não tem nenhuma matrícula, a função é interrompida
+    if(validador == 0){
+        fp = fopen(ra, "w"); //criando o histórico do aluno
+    
+        if(fp == NULL)
+           return 1; //impossível abrir o arquivo e interrompe a função
+        
+        fputs("Faculdade de Tecnologia - UNICAMP\n", fp);
+        fputs("\n", fp);
+        fputs("Relatorio de Matricula\n", fp);
+        fputs("\n", fp);
+
+        fprintf(fp, "Nome Completo: %s\n", user.nome);
+        fprintf(fp, "RA: %d\n", user.ra);
+        fprintf(fp, "Coeficiente de Rendimento: Nenhum\n");
+        fprintf(fp, "Classificacao do aluno na turma: N/A de %d\n", m);
+        
+        fputs("\n", fp);
+    
+        fputs("Disciplina\tNota\tFaltas(%)\tSituacao\n", fp);
+        
+        fputs("O aluno nao tem matriculas!\n", fp);
+        
+        fflush(fp);
+        fclose(fp);
+        
+        puts("O arquivo foi gerado com sucesso!");
+        puts("Pressione ENTER para continuar");
+        getchar();
+
+        return 0;
+    }
     
     fp = fopen("Disciplinas.txt", "r"); /* abrindo o arquivo para ver o número de
                                          * disciplinas presentes no arquivo */
