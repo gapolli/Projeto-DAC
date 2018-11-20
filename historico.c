@@ -253,6 +253,7 @@ int hist(Aluno user){
        
        coeficiente[l] = (contcn / contcred); //calculando o coeficiente
        
+       //condição onde a nota e falta não foi atualizada
        if(contcn == 0 && contcred == 0)
            coeficiente[l] = 0;
        
@@ -297,10 +298,11 @@ int hist(Aluno user){
     fprintf(fp, "Nome Completo: %s\n", user.nome);
     fprintf(fp, "RA: %d\n", user.ra);
     
+    //condição onde o coeficiente é zero já que a nota e falta não foram atualizados
     if(valpos == 0){
         fprintf(fp, "Coeficiente de Rendimento: Nenhum\n");
         fprintf(fp, "Classificacao do aluno na turma: N/A de %d\n", m);
-    }else{
+    }else{ //condição onde foram atualizados e estão normais
         fprintf(fp, "Coeficiente de Rendimento: %.2f\n", valpos);
         fprintf(fp, "Classificacao do aluno na turma: %d de %d\n", pos, m);
     }
@@ -312,6 +314,7 @@ int hist(Aluno user){
     //laço que imprime as matrículas na tela
     for(j = 0; j < i; j++){
         if(user.ra == alunos[j].ra){
+            //condição onde a nota e falta não foram atualizados
             if(alunos[j].nota == -1){
                 fprintf(fp, "%s\t\tN/A\tN/A\t\tIndefinida, nota e falta nao atualizadas!\n", 
                         alunos[j].codigo);
