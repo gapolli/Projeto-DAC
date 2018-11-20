@@ -239,6 +239,9 @@ int hist(Aluno user){
                for(n = 0; n < k; n++){ //3º laço repete por quantidade de disciplinas
                    //condição onde a disciplina é encontrada
                    if(strcmp(alunos[j].codigo, disc[n].codigo) == 0){
+                       if(alunos[j].nota == -1)
+                           break;
+                       
                        contcn += (disc[n].creditos * alunos[j].nota);
                        contcred += disc[n].creditos;
                        
@@ -249,6 +252,10 @@ int hist(Aluno user){
        }
        
        coeficiente[l] = (contcn / contcred); //calculando o coeficiente
+       
+       if(contcn == 0 && contcred == 0)
+           coeficiente[l] = 0;
+       
        contcn = 0; //zerando para usar novamente
        contcred = 0; //zerando para usar novamente
        
@@ -289,8 +296,14 @@ int hist(Aluno user){
     
     fprintf(fp, "Nome Completo: %s\n", user.nome);
     fprintf(fp, "RA: %d\n", user.ra);
-    fprintf(fp, "Coeficiente de Rendimento: %.2f\n", valpos);
-    fprintf(fp, "Classificacao do aluno na turma: %d de %d\n", pos, m);
+    
+    if(valpos == 0){
+        fprintf(fp, "Coeficiente de Rendimento: Nenhum\n");
+        fprintf(fp, "Classificacao do aluno na turma: N/A de %d\n", m);
+    }else{
+        fprintf(fp, "Coeficiente de Rendimento: %.2f\n", valpos);
+        fprintf(fp, "Classificacao do aluno na turma: %d de %d\n", pos, m);
+    }
     
     fputs("\n", fp);
     
@@ -299,6 +312,13 @@ int hist(Aluno user){
     //laço que imprime as matrículas na tela
     for(j = 0; j < i; j++){
         if(user.ra == alunos[j].ra){
+            if(alunos[j].nota == -1){
+                fprintf(fp, "%s\t\tN/A\tN/A\t\tIndefinida, nota e falta nao atualizadas!\n", 
+                        alunos[j].codigo);
+                
+                continue;
+            }
+            
             if(alunos[j].nota >= 5 && alunos[j].faltas < 25){
                 fprintf(fp, "%s\t\t%.1f\t%.1f\t\tAprovado por Nota e Frequencia\n", 
                         alunos[j].codigo, alunos[j].nota, alunos[j].faltas);
